@@ -28,7 +28,7 @@ pipeline{
 			    success{
 			        echo 'Deployed to Production Successfully !!'
 			    }
-			    fail{
+			    failure{
 			        echo 'Deployment Failed !!'
 			    }
 			}
