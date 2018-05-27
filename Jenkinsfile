@@ -5,19 +5,17 @@ pipeline{
            steps{
        		sh 'mvn clean package'
   			}
+  			post{
+			    success{
+			    echo 'Archiving Artifacts!'
+            	archiveArtifacts artifacts: '**/target/*.war'
+			    }
+			}
          }
         stage('Deploy to Staging'){
             steps{
-            	echo 'Archiving Artifacts!'
-            	archiveArtifacts artifacts: '**/target/*.war'
+            	build job: 'deploy-to-staging'
             }
-			post{
-			    success{
-			        build job: 'deploy-to-staging'
-			    }
-
-			}
-
 		}
     }
 }
