@@ -3,7 +3,6 @@ pipeline {
 
     stages {
         stage('Build') {
-            steps {
                 steps {
                     sh 'mvn clean package'
                 }
@@ -17,4 +16,3 @@ pipeline {
             }
         }
     }
-}
